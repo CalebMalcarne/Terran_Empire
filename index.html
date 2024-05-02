@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Galaxy Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map { height: 1300px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: -5
+    });
+
+    var bounds = [[0,0], [1000, 2000]];
+    var image = L.imageOverlay('imgs/GalMap.png', bounds).addTo(map);
+    map.fitBounds(bounds);
+
+    var sol = L.marker([420, 1177]).bindPopup('Solar System Info').addTo(map);
+    sol.bindPopup('<a href="sol.html" target="_blank">System Info</a>');
+    //var alphaCentauri = L.marker([700, 1700]).bindPopup('Alpha Centauri Info').addTo(map);
+
+    // Coordinates display
+    var coords = L.control();
+    coords.onAdd = function(map) {
+      this._div = L.DomUtil.create('div', 'coords');
+      this.update();
+      return this._div;
+    };
+    coords.update = function (pos) {
+      this._div.innerHTML = pos ? 'Lat: ' + pos.lat.toFixed(3) + ' Lng: ' + pos.lng.toFixed(3) : 'Hover over the map';
+    };
+    coords.addTo(map);
+
+    map.on('mousemove', function(e) {
+      coords.update(e.latlng);
+    });
+  </script>
+</body>
+</html>
