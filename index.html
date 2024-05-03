@@ -25,12 +25,46 @@
     });
 
     var bounds = [[0,0], [1000, 2500]];
-    var image = L.imageOverlay('imgs/empireMap4.png', bounds).addTo(map);
+    var image = L.imageOverlay('imgs/empireMap5.png', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    var sol = L.marker([420, 1304]).bindPopup('Solar System Info').addTo(map);
+    //Systems
+    var sol = L.marker([420, 1304]).bindPopup('System Info').addTo(map);
     sol.bindPopup('<a href="sol.html" target="_blank">System Info</a>');
-    var alphaCentauri = L.marker([429, 1317]).bindPopup('Alpha Centauri Info').addTo(map);
+
+    var alphaCentauri = L.marker([429, 1317]).bindPopup('System Info').addTo(map);
+
+    var MiningCore = L.marker([393, 1261]).bindPopup('System Info').addTo(map);
+
+    var epsilonEridani = L.marker([398, 1390]).bindPopup('System Info').addTo(map);
+
+    var sigmaDrac = L.marker([348, 1283]).bindPopup('System Info').addTo(map);
+
+    var impShipYard = L.marker([364, 1217]).bindPopup('System Info').addTo(map);
+
+    var Porcyon = L.marker([484, 1525]).bindPopup('System Info').addTo(map);
+
+    var BetaHydri = L.marker([432, 1074]).bindPopup('System Info').addTo(map);
+
+    var Persephonie = L.marker([383, 884]).bindPopup('System Info').addTo(map);
+
+    var Luyten = L.marker([292, 1051]).bindPopup('System Info').addTo(map);
+    //Space Stations
+    var NebulaHaven = L.marker([463, 984]).bindPopup('System Info').addTo(map);
+
+    var Explorer1 = L.marker([626, 1103]).bindPopup('System Info').addTo(map);
+
+    var InfernaPorta = L.marker([551, 1256]).bindPopup('System Info').addTo(map);
+
+    var OriansAnvil = L.marker([511, 1392]).bindPopup('System Info').addTo(map);
+    //other
+
+    var starfall = L.marker([600, 1352]).bindPopup('System Info').addTo(map);
+
+    var mirrorFields = L.marker([280, 1296]).bindPopup('System Info').addTo(map);
+
+    var voxPulsar = L.marker([475, 1120]).bindPopup('System Info').addTo(map);
+  
 
     // Coordinates display
     var coords = L.control();
